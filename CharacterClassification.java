@@ -12,5 +12,7 @@ public interface CharacterClassification {
 	boolean ableToUseWeapon(String weapon);
 	
 	boolean ableToUseSpell(String spell);
+	
+	int getHealth(int conMod);
 
 }
