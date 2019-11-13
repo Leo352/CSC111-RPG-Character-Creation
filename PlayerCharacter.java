@@ -20,13 +20,9 @@ public class PlayerCharacter {
 		
 		Dice dice = new Dice();
 		abilityScoreModifying modify = new abilityScoreModifying();
+		removeItem remove = new removeItem();
 		
-		String[] a = {"1", "2", "3"};
-		removeItem b = new removeItem();
-		a = b.removeElements(a, "2");
-		System.out.printf("%s %s", a[0], a[1]);
-		
-		/*int r1 = dice.RollStats();
+		int r1 = dice.RollStats();
 		int r2 = dice.RollStats();
 		int r3 = dice.RollStats();
 		int r4 = dice.RollStats();
@@ -51,12 +47,13 @@ public class PlayerCharacter {
 			boolean availableAbility = false;
 			
 			for(int i = 0; i < abilities.length; i++) {
-				if(selectedStat.toLowerCase() == abilities[i]) availableAbility = true;
+				if(selectedStat.toLowerCase().contentEquals(abilities[i])) availableAbility = true;
 			}
 			
-			if(availableAbility) ArrayUtils.remove(abilities);
+			if(availableAbility) abilities = remove.removeElements(abilities, selectedStat);
+			else System.out.println("That is not an available stat.");
 			
-		}*/
+		}
 		
 	}
 
