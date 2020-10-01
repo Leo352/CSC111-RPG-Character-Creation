@@ -1,9 +1,11 @@
 
-public class Barbarian implements CharacterClassification {
+public class Ranger implements CharacterClassification {
 	
 	Dice dice = new Dice();
-	public int health = dice.RollD12();
-
+	public int health = dice.RollD8();
+	
+	public String[] rangerSpells = {"alarm", "animal messanger", "calm animals", "charm animal", "delay poison", "detect animals or plants", "detect poison", "detect snares and pits", "endure elements", "entagle", "hide from animals", "jump", "longstrider", "magic fang", "pass without trace", "read magic", "resist energy", "speak with animals", "summon nature's ally"};
+	
 	@Override
 	public int getClassStatMod(String stat) {
 		return 0;
@@ -11,7 +13,7 @@ public class Barbarian implements CharacterClassification {
 
 	@Override
 	public String getClassName() {
-		return "Barbarian";
+		return "Ranger";
 	}
 
 	@Override
@@ -31,7 +33,13 @@ public class Barbarian implements CharacterClassification {
 
 	@Override
 	public boolean ableToUseSpell(String spell) {
-		return false;
+		boolean usableSpell = false;
+		for(int i = 0; i < rangerSpells.length; i++) {
+			if(rangerSpells[i] == spell.toLowerCase()) usableSpell = true;
+		}
+		
+		if(usableSpell) return true;
+		else return false;
 	}
 	
 	public int getHealth(int conMod) {
@@ -41,7 +49,7 @@ public class Barbarian implements CharacterClassification {
 	}
 	
 	public int startingGold() {
-		int gold = (dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4())*10;
+		int gold = (dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4())*10;
 		return gold;
 	}
 

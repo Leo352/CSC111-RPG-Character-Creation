@@ -1,9 +1,10 @@
 
-public class Barbarian implements CharacterClassification {
-	
+public class PaladinClass implements CharacterClassification {
 	Dice dice = new Dice();
-	public int health = dice.RollD12();
-
+	public int health = dice.RollD10();
+	
+	public String[] paladinSpells = {"bless", "bless water", "bless weapon", "create water", "cure light wounds", "detect poison", "detect undead", "divine favor", "endure elements", "magic weapon", "protection from chaos", "protection from evil", "read magic", "resistance", "restoration, lesser", "virtue"};
+	
 	@Override
 	public int getClassStatMod(String stat) {
 		return 0;
@@ -11,7 +12,7 @@ public class Barbarian implements CharacterClassification {
 
 	@Override
 	public String getClassName() {
-		return "Barbarian";
+		return "Paladin";
 	}
 
 	@Override
@@ -31,7 +32,13 @@ public class Barbarian implements CharacterClassification {
 
 	@Override
 	public boolean ableToUseSpell(String spell) {
-		return false;
+		boolean usableSpell = false;
+		for(int i = 0; i < paladinSpells.length; i++) {
+			if(paladinSpells[i] == spell.toLowerCase()) usableSpell = true;
+		}
+		
+		if(usableSpell) return true;
+		else return false;
 	}
 	
 	public int getHealth(int conMod) {
@@ -41,8 +48,7 @@ public class Barbarian implements CharacterClassification {
 	}
 	
 	public int startingGold() {
-		int gold = (dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4())*10;
+		int gold = (dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4())*10;
 		return gold;
 	}
-
 }

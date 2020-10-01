@@ -14,5 +14,7 @@ public interface CharacterClassification {
 	boolean ableToUseSpell(String spell);
 	
 	int getHealth(int conMod);
+	
+	int startingGold();
 
 }

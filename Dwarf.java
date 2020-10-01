@@ -1,22 +1,22 @@
 
-public class HalfElf implements CharacterRace{
+public class Dwarf implements CharacterRace {
 
 	@Override
 	public String getRaceName() {
-		return "Half-Elf";
+		return "Dwarf";
 	}
 
 	@Override
 	public int getRaceStatModifiers(String stat) {
-		// TODO Auto-generated method stub
+
 		return 0;
 	}
 
 	@Override
 	public int raceAbilityScoreModifiers(String stat) {
-		return 0;
+		if(stat.equals("constitution")) return 2;
+		else if(stat.equals("charisma")) return -2;
+		else return 0;
 	}
 
-
 }
-

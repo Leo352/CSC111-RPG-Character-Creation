@@ -1,8 +1,7 @@
 
-public class Barbarian implements CharacterClassification {
-	
+public class Fighter implements CharacterClassification {
 	Dice dice = new Dice();
-	public int health = dice.RollD12();
+	public int health = dice.RollD10();
 
 	@Override
 	public int getClassStatMod(String stat) {
@@ -11,7 +10,7 @@ public class Barbarian implements CharacterClassification {
 
 	@Override
 	public String getClassName() {
-		return "Barbarian";
+		return "Fighter";
 	}
 
 	@Override
@@ -41,7 +40,7 @@ public class Barbarian implements CharacterClassification {
 	}
 	
 	public int startingGold() {
-		int gold = (dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4())*10;
+		int gold = (dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4() + dice.RollD4())*10;
 		return gold;
 	}
 
