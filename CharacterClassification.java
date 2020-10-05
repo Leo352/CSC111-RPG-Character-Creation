@@ -5,6 +5,11 @@ public interface CharacterClassification {
 	public String[] martialWeaponsList = {"axe, throwing", "hammer. light", "handaxe", "kukri", "pick, light", "sap", "shiled, light", "spiked armor", "spiked shield, light", "sword, short", "battleaxe", "flail", "longsword", "pick, heavy", "rapier", "shield, heavy", "spiked shield, heavy", "trident", "warhammer", "falchion", "glaive", "greataxe", "greatclub", "flail, heavy", "greatsword", "guisarme", "halberd", "lance", "ranseur", "scythe", "longbow", "longbow, composite", "shortbow", "shortbow, composite"};
 	public String[] exoticWeaponsList = {"kama", "nunchaku", "sai", "siangham", "sword, bastard", "waraxe, dwarven", "whip", "axe, ord double", "chain, spiked", "flail, dire", "hammer, gnome hooked", "sword, two-bladed", "urgosh, dwarven", "bolas", "crossbow, hand", "crossbow, repeating heavy", "crossbow, repeating light", "net", "shuriken"};
 	
+	public String[] lightArmorList = {"padded", "leather", "studded leather", "chain shirt"};
+	public String[] mediumArmorList = {"hide", "scale mail", "chainmail", "breastplate"};
+	public String[] heavyArmorList = {"splint mail", "banded mail", "half plate", "full plate"};
+	public String[] shieldsList = {"buckler", "light wooden", "ligth steel", "heavy wooden", "heavy steel", "tower"};
+
 	int getClassStatMod(String stat); //TODO figure out what this means
 	
 	String getClassName();
